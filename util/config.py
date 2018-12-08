@@ -5,6 +5,8 @@ embedding_path = {
     'google' : "/home/i/Code/python/CRNLP/datasets/embedding/GoogleNews-vectors-negative300.bin"
 }
 
+pk_dir = 'datasets'
+
 PAD = "<PAD>"
 SOS = "<SOS>"
 EOS = "<EOS>"

@@ -8,3 +8,14 @@ Six erroneous:
 - verb
 - predicate
 - punctuation
+
+
+
+## Requirements
+- Python 3.x
+- nltk
+- TensorFlow
+- numpy
+
+
+## 

@@ -15,9 +15,8 @@ os.environ['CUDA_VISIBLE_DEVICES'] = ''
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '0' 
 
-class Infer():
+class Corrector():
     def __init__(self):
-
         logging.info("load data......")
         self.data = datasets.Lang8v1()
         self.data.process()
@@ -43,7 +42,14 @@ class Infer():
         logging.info('Restore model from %s'%checkpoint_path)
         self.model.saver.restore(sess, checkpoint_path)
 
-    def infer(self, sentence):
+    def correct(self, sentence):
+        '''correct a English sentence
+
+        Args:
+            sentence: a string of a sentence
+        Returns:
+            a corrected sentence
+        '''
         sentence = sentence.lower()
         sentence = tok.word_tokenize(sentence)
         # print(' '.join(sentence))
@@ -55,18 +61,19 @@ class Infer():
         print("[src]:", ' '.join([self.data.src_i2w[num] for num in sent if self.data.src_i2w[num] != PAD]))
         # print("[tgt]:", ' '.join([data.tgt_i2w[num] for num in tgt_batch[0] if data.tgt_i2w[num] != PAD]))
         print("[prd]:", ' '.join([self.data.tgt_i2w[num] for num in predict_batch[0] if self.data.tgt_i2w[num] != PAD]))
+
             
 if __name__ == "__main__":
     sentences = [
-        "I love the world!",
+        "I hates the world!",
         "I like to do the work.",
-        "what you are doing?"
+        "what is you doing?"
     ]
-    infer = Infer()
+    corrector = Corrector()
     for sent in sentences:
-        infer.infer(sent)
+        corrector.correct(sent)
     while True:
         sent = str(input('\nInput: '))
         if sent in ['q', 'exit', 'quit']: break
-        infer.infer(sent)
+        corrector.correct(sent)
     print('Bye~')

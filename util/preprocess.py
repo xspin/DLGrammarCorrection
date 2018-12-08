@@ -103,13 +103,13 @@ def process(name, load_data, embed, regen, character_dim):
     alphabet = "abcdefghijklmnopqrstuvwxyz0123456789-,;.!?:'\"/\\|_@#$%^&*~`+-=<>()[]{}"
     assert embed=='glove' or embed=='google' or embed=='word2vec', "invalid embedding method: "+embed
     if embed=='word2vec': embed = 'google'
-    pkfile='datasets/data_' + name + '_' + embed;
+    pkfile= os.path.join(pk_dir, 'data_' + name + '_' + embed);
     if character_dim!=None and character_dim>0: pkfile += '_'+str(character_dim)
     pkfile += '.p'
     data = []
     print('Process dataset:', name.upper())
-    if not os.path.exists('datasets'):
-        os.mkdir('datasets')
+    if not os.path.exists(pk_dir):
+        os.mkdir(pk_dir)
     if os.path.exists(pkfile) and not regen:
         print('loading dump file ...')
         data = pk.load(open(pkfile,'rb'))
