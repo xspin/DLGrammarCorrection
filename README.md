@@ -1,6 +1,8 @@
 # DLGrammarCorrection
 A deep learning model for English grammar correction
 
+https://github.com/xspin/deep-text-corrector
+
 Six erroneous:
 - preposition
 - noun
