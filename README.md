@@ -1,9 +1,9 @@
 # DLGrammarCorrection
 A deep learning model for English grammar correction
 
-https://github.com/xspin/deep-text-corrector
+See also: https://github.com/xspin/deep-text-corrector
 
-Six erroneous:
+Six error types:
 - preposition
 - noun
 - article
@@ -19,5 +19,3 @@ Six erroneous:
 - TensorFlow
 - numpy
 
-
-## 
